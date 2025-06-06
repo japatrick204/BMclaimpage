@@ -1,6 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { brands } from '../data/brands';
+import logo1 from '../assets/logo1.svg';
+import logo2 from '../assets/logo2.svg';
+import logo3 from '../assets/logo3.svg';
+import logo4 from '../assets/logo4.svg';
+import logo5 from '../assets/logo5.svg';
+import logo6 from '../assets/logo6.svg';
+import logo7 from '../assets/logo7.svg';
+import logo8 from '../assets/logo8.svg';
+import logo9 from '../assets/logo9.svg';
+import logo10 from '../assets/logo10.svg';
 
 export default function Landing() {
   const [query, setQuery] = useState('');
@@ -19,7 +29,7 @@ export default function Landing() {
     navigate(`/claim/${brand.slug}`);
   };
 
-  const logos = Array.from({ length: 10 }, (_, i) => `/src/assets/logo${i + 1}.svg`).filter((_, idx) => idx !== 0 && idx !== 8);
+  const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10].filter((_, idx) => idx !== 0 && idx !== 8);
 
   return (
     <>

@@ -23,7 +23,8 @@ export default function VerifyCode() {
 
   return (
     <section className="max-w-md mx-auto py-20 px-4 text-center">
-      <h2 className="text-2xl font-semibold mb-6">Enter Verification Code</h2>
+      <h2 className="text-2xl font-semibold mb-2">Enter Verification Code</h2>
+      <p className="text-neutral-600 mb-6">We sent a verification code to your email address. Add it below.</p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
