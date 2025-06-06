@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { brands } from '../data/brands';
 import { useAuth } from '../context/AuthContext';
 import { useState } from 'react';
-import genericBanner from '../assets/generic banner.png';
+import genericBanner from '../assets/generic-banner.png';
 
 export default function BrandDetail() {
   const { slug } = useParams();

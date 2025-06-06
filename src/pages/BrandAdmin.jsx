@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { brands } from '../data/brands';
-import genericBanner from '../assets/generic banner.png';
+import genericBanner from '../assets/generic-banner.png';
 
 export default function BrandAdmin() {
   const { slug } = useParams();

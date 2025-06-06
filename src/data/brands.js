@@ -1,5 +1,5 @@
-import uniqloBanner from '../assets/Banner image.png';
-import genericBanner from '../assets/generic banner.png';
+import uniqloBanner from '../assets/banner-image.png';
+import genericBanner from '../assets/generic-banner.png';
 
 export const brands = [
   {
