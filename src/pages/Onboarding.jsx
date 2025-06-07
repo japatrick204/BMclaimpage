@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { brands } from '../data/brands';
 
 function RoleSelect({ value, onChange }) {
   const [open, setOpen] = useState(false);
@@ -50,7 +51,16 @@ function RoleSelect({ value, onChange }) {
 export default function Onboarding() {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const [form, setForm] = useState({ first: '', last: '', company: '', role: '' });
+
+  const brand = brands.find((b) => b.slug === slug);
+  const defaultCompany = brand
+    ? brand.name
+    : slug
+        .split('-')
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(' ');
+
+  const [form, setForm] = useState({ first: '', last: '', company: defaultCompany, role: '' });
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 

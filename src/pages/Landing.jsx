@@ -44,7 +44,7 @@ export default function Landing() {
       <div className="relative">
         <input
           type="search"
-          placeholder="Find your brand or store"
+          placeholder="Find your brand"
           className="w-full bg-[#FBFBF9] border-2 border-white rounded-full py-3 pl-5 pr-14 focus:outline-none"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

@@ -12,6 +12,8 @@ export default function BrandDetail() {
   const [showVerify, setShowVerify] = useState(false);
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+  const [loginMode, setLoginMode] = useState(false);
+  const [password, setPassword] = useState('');
 
   if (!brand) {
     return (
@@ -99,10 +101,12 @@ export default function BrandDetail() {
               ×
             </button>
             <h2 className="text-2xl font-semibold mb-6 text-center">
-              Verify Your Identity
+              {loginMode ? 'Welcome back' : 'Verify Your Identity'}
             </h2>
             <p className="text-neutral-600 mb-6 text-center">
-              We'll send a verification code to prove you work at {brand.name}.
+              {loginMode
+                ? 'Log in to claim this brand page.'
+                : `We'll send a verification code to prove you work at ${brand.name}.`}
             </p>
             <form
               onSubmit={(e) => {
@@ -126,6 +130,18 @@ export default function BrandDetail() {
                 }}
                 className="w-full border border-neutral-300 rounded-md py-3 px-4 focus:outline-none"
               />
+              {loginMode && (
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setError('');
+                  }}
+                  className="w-full border border-neutral-300 rounded-md py-3 px-4 focus:outline-none"
+                />
+              )}
               {error && <p className="text-red-600 text-sm">{error}</p>}
               <button
                 type="submit"
@@ -136,8 +152,22 @@ export default function BrandDetail() {
                     : 'bg-cta/40 text-white/60 cursor-not-allowed'
                 }`}
               >
-                Send Verification Code →
+                {loginMode ? 'Log in' : 'Send Verification Code →'}
               </button>
+              <p className="text-sm text-center mt-4">
+                {loginMode ? (
+                  <>Not a member?{' '}
+                    <button type="button" className="underline" onClick={()=>{setLoginMode(false);setPassword('');setError('');}}>
+                      Sign up
+                    </button>{' '}to claim this page
+                  </>
+                ) : (
+                  <>Already a member?{' '}
+                    <button type="button" className="underline" onClick={()=>{setLoginMode(true);setError('');}}>
+                      Log in
+                    </button>
+                  </>)}
+              </p>
             </form>
           </div>
         </div>
